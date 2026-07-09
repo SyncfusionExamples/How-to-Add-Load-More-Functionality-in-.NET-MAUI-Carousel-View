@@ -10,22 +10,18 @@
         <local:CarouselViewModel/>
     </ContentPage.BindingContext>
 
-    <ContentPage.Resources>
-        <ResourceDictionary>
-            <DataTemplate x:Key="itemTemplate">
-                <Image Source="{Binding Image}" 
-                        Aspect="AspectFit"/>
-            </DataTemplate>
-        </ResourceDictionary>
-    </ContentPage.Resources>
-    
     <ContentPage.Content>
         <carousel:SfCarousel x:Name="carousel"
-                     ItemsSource="{Binding ImageCollection}"
-                     ItemTemplate="{StaticResource itemTemplate}"
-                     AllowLoadMore="True"
-                     LoadMoreItemsCount="2" 
-                     ViewMode="Linear">
+                             ItemsSource="{Binding ImageCollection}"
+                             AllowLoadMore="True"
+                             LoadMoreItemsCount="2" 
+                             ViewMode="Linear">
+                <carousel:SfCarousel.ItemTemplate>
+                    <DataTemplate>
+                            <Image Source="{Binding Image}" 
+                                   Aspect="AspectFit"/>
+                    </DataTemplate>
+                </carousel:SfCarousel.ItemTemplate>
         </carousel:SfCarousel>
     </ContentPage.Content>
 
